@@ -1,35 +1,36 @@
 from random import randint
 
-#Create a list of options of the user to play
+#create a list of play options
 t = ["Rock", "Paper", "Scissors"]
 
-#Assign a random play to the computer
-compPlay = t[randint(0,2)]
+#assign a random play to the computer
+computer = t[randint(0,2)]
 
-#set player to false 
+#set playerdesc to False
 player = False
 
 while player == False:
-    player = input("Rock, Paper or Scissors?")
-    if player == computer:
-        print("ooooo that's a tie")
-    elif player == "Rock":
-        if computer == "Paper" or computer == "Scissors":
-            print("You lose!", computer, "covers", player)
-        else 
-            print("You win!", player, "smashes", computer)
-    elif player == "Paper":
+#set playerdesc to True
+    playerdesc = input("Rock, Paper, Scissors?")
+    if playerdesc == computer:
+        print("Tie!")
+    elif playerdesc == "Rock":
+        if computer == "Paper":
+            print("You lose!", computer, "covers", playerdesc)
+        else:
+            print("You win!", playerdesc, "smashes", computer)
+    elif playerdesc == "Paper":
         if computer == "Scissors":
-            print("You lose!", computer, "cuts", player)
-        else 
-            print("You win!", player, "smashes", computer)
-    elif player == "Scissors":
+            print("You lose!", computer, "cut", playerdesc)
+        else:
+            print("You win!", playerdesc, "covers", computer)
+    elif playerdesc == "Scissors":
         if computer == "Rock":
-            print("You lose!", computer, "covers", player)
-        else 
-            print("You win!", player, "smashes", computer)
-    else: 
-        print("thats not a valid play. Please check your spelling")
-        
-    player = False 
+            print("You lose...", computer, "smashes", playerdesc)
+        else:
+            print("You win!", playerdesc, "cut", computer)
+    else:
+        print("That's not a valid play. Check your spelling!")
+    #playerdesc was set to True, but we want it to be False so the loop continues
+    player = False
     computer = t[randint(0,2)]
